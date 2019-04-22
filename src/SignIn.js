@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import {AvForm, AvField} from 'availity-reactstrap-validation';
-import {Button, Modal, ModalHeader, ModalBody, ModalFooter} from 'reactstrap';
 import {
     Container, Col, Form,
-    FormGroup, Label, Input
+    FormGroup, Label, Input, Button
 } from 'reactstrap';
 import './App.css';
 import axios from 'axios'
@@ -33,7 +31,7 @@ class SignIn extends Component {
         )
     }
     isValid = () => {
-        
+
     }
 
     render() {

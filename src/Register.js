@@ -61,7 +61,6 @@ class Register extends Component {
                                 id="exampleFirstName"
                                 placeholder="FirstName"
                                 required
-                                requiredTxt=""
                                 onChange={e => this.onFirstNameUpdate(e.target.value)}
                             />
                         </FormGroup>
@@ -96,8 +95,8 @@ class Register extends Component {
                         <FormGroup>
                             <Label for="examplePassword">Password*
                                 <h6>Must contain at least one number and one uppercase
-                                and lowercase letter, and at least 8
-                                or more characters</h6>
+                                    and lowercase letter, and at least 8
+                                    or more characters</h6>
                             </Label>
                             <Input
                                 type="password"
@@ -107,15 +106,12 @@ class Register extends Component {
                                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                 required
                                 onChange={e => this.onPasswordUpdate(e.target.value)}
-                                inputProps={{
-                                    title: "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                }}
                             />
                         </FormGroup>
                     </Col>
                     <Button color="primary" tag={Link} to="/dinners">
                         {isLoading ? 'Loading' : 'Register'}
-                        
+
                     </Button>
                 </Form>
             </Container>
