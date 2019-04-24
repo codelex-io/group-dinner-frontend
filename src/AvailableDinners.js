@@ -15,27 +15,19 @@ class AvailableDinners extends Component {
     }
 
     componentDidMount() {
-        const {title, maxGuest, description, location, dateTime} = this.state
-        axios.get(`http://localhost:8080/api/dinners`,
-            {
-                title,
-                maxGuest,
-                description,
-                location,
-                dateTime
-            }
+        axios.get(`http://localhost:8080/api/dinners`
         ).then(res => {
                 console.log(res)
-                this.setState({isLoading: false})
             }
         )
     }
 
-    render() {
-        return false
+    printDinners = () => {
+
     }
 
-    const = (props) => {
+
+    render() {
         return (
             <div>
                 <Jumbotron>
@@ -46,7 +38,7 @@ class AvailableDinners extends Component {
                     <p>It uses utility classes for typography and spacing to space content out within the larger
                         container.</p>
                     <p className="lead">
-                        <Button color="primary">Learn More</Button>
+                        <Button onClick={this.componentDidMount} color="primary">Learn More</Button>
                     </p>
                 </Jumbotron>
             </div>

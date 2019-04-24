@@ -32,7 +32,7 @@ class CreateDinner extends Component {
     onDateTimeUpdate = dateTime => {
         this.setState({dateTime: dateTime})
     }
-    
+
     onSubmit = () => {
         const {title, maxGuest, description, location, dateTime} = this.state
         axios.post(
@@ -128,7 +128,7 @@ class CreateDinner extends Component {
                                 onChange={e => this.onDateTimeUpdate(e.target.value)}/>
                         </FormGroup>
                     </Col>
-                    <Button disabled={!this.isValid()} color="primary" tag={Link} to="/dinners">
+                    <Button disabled={!this.isValid()} color="primary" tag={Link} to="/dinners" onClick={this.onSubmit}>
                         {isLoading ? 'Loading' : 'Create dinner'}
                     </Button>
                 </Form>
