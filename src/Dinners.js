@@ -1,25 +1,11 @@
 import React, {Component} from 'react';
-import {
-    Container, Form,
-    Button,
-} from 'reactstrap';
+import {Button, Container, Form,} from 'reactstrap';
 import './App.css';
-import axios from 'axios'
 import {Link} from 'react-router-dom'
 import AvailableDinners from './AvailableDinners'
 
 class Dinners extends Component {
-
-    onSubmit = () => {
-        axios.post(
-            `http://localhost:8080/api/dinners`,
-        ).then(res => {
-                console.log(res)
-                this.setState({isLoading: false})
-            }
-        )
-    }
-
+    
     render() {
         return (
             <Container className="App">

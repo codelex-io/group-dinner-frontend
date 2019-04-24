@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
-import {
-    Container, Col, Form,
-    FormGroup, Label, Input,
-    Button, UncontrolledAlert
-} from 'reactstrap';
+import {Button, Col, Container, Form, FormGroup, Input, Label, UncontrolledAlert} from 'reactstrap';
 import './App.css';
 import axios from 'axios'
-import {Link} from 'react-router-dom'
 import history from './history'
 
 class Register extends Component {
@@ -33,7 +28,7 @@ class Register extends Component {
     onSubmit = () => {
         const {firstName, lastName, email, password} = this.state
         axios.post(
-            `http://localhost:8080/api/register`,
+            `/api/register`,
             {
                 firstName,
                 lastName,
@@ -43,7 +38,6 @@ class Register extends Component {
         ).then(res => {
                 console.log(res)
                 history.push("/dinners")
-
             }
         )
     }
@@ -128,9 +122,8 @@ class Register extends Component {
                             />
                         </FormGroup>
                     </Col>
-                    <Button disabled={!this.isValid()} color="primary" tag={Link} to="/dinners" onClick={this.onSubmit}>
+                    <Button disabled={!this.isValid()} color="primary" onClick={this.onSubmit}>
                         {isLoading ? 'Loading' : 'Register'}
-
                     </Button>
                 </Form>
             </Container>

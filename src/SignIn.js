@@ -22,7 +22,7 @@ class SignIn extends Component {
 
     onSubmit = () => {
         axios.post(
-            `http://localhost:8080/api/sign-in`,
+            `/api/sign-in`,
             {email: this.state.email, password: this.state.password}
         ).then(res => {
                 console.log(res)

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Router, Route, Switch} from "react-router-dom";
+import {Route, Router, Switch} from "react-router-dom";
 import Register from './Register'
 import SignIn from './SignIn'
 import CreateDinner from './CreateDinner'
@@ -13,11 +13,11 @@ class App extends Component {
             <Router history={history}>
                 <div>
                     <Switch>
-                        <Route path="/sign-in/" component={SignIn}/>
-                        <Route path="/register/" component={Register}/>
+                        <Route path="/sign-in" component={SignIn}/>
+                        <Route path="/register" component={Register}/>
                         <Route path="/create-dinner" component={CreateDinner}/>
-                        <Route path="/dinners/" component={Dinners}/>
-                        <Route path="/dinner/{id}" component={DinnerPage}/>
+                        <Route path="/dinners/:id" component={DinnerPage}/>
+                        <Route path="/dinners" component={Dinners}/>
                     </Switch>
                 </div>
             </Router>

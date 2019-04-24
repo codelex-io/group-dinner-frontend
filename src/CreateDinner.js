@@ -11,7 +11,7 @@ import {Link} from 'react-router-dom'
 class CreateDinner extends Component {
     state = {
         title: "",
-        maxGuest: "",
+        maxGuests: "",
         description: "",
         location: "",
         dateTime: "",
@@ -20,8 +20,8 @@ class CreateDinner extends Component {
     onTitleUpdate = title => {
         this.setState({title: title})
     }
-    onMaxGuestsUpdate = maxGuest => {
-        this.setState({maxGuest: maxGuest})
+    onMaxGuestsUpdate = maxGuests => {
+        this.setState({maxGuests: maxGuests})
     }
     onDescriptionUpdate = description => {
         this.setState({description: description})
@@ -34,12 +34,12 @@ class CreateDinner extends Component {
     }
 
     onSubmit = () => {
-        const {title, maxGuest, description, location, dateTime} = this.state
+        const {title, maxGuests, description, location, dateTime} = this.state
         axios.post(
-            `http://localhost:8080/api/create-dinner`,
+            `/api/create-dinner`,
             {
                 title,
-                maxGuest,
+                maxGuests,
                 description,
                 location,
                 dateTime
@@ -52,11 +52,11 @@ class CreateDinner extends Component {
     }
 
     isValid = () => {
-        const {title, maxGuest, description} = this.state
+        const {title, maxGuests, description} = this.state
         if (!title || title.length === 0) {
             return false
         }
-        if (!maxGuest || maxGuest.length === 0) {
+        if (!maxGuests || maxGuests.length === 0) {
             return false
         }
         if (!description || description.length === 0) {

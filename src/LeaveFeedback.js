@@ -16,7 +16,7 @@ class LeaveFeedback extends Component {
     onSubmit = () => {
         const {feedback} = this.state
         axios.post(
-            `http://localhost:8080/api/feedback`, {
+            `/api/feedback`, {
                 feedback
             }
         ).then(res => {
