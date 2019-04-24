@@ -5,7 +5,7 @@ import SignIn from './SignIn'
 import CreateDinner from './CreateDinner'
 import Dinners from './Dinners'
 import DinnerPage from './DinnerPage'
-import history from '·/history'
+import history from './history'
 
 class App extends Component {
     render() {
