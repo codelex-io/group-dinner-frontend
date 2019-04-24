@@ -31,6 +31,14 @@ class SignIn extends Component {
         )
     }
     isValid = () => {
+        const {email, password} = this.state
+        if (!email || email.length === 0) {
+            return false
+        }
+        if (!password || password.length === 0) {
+            return false
+        }
+        return true
 
     }
 
@@ -65,7 +73,7 @@ class SignIn extends Component {
                             />
                         </FormGroup>
                     </Col>
-                    <Button color="primary" tag={Link} to="/dinners">
+                    <Button disabled={!this.isValid()} color="primary" tag={Link} to="/dinners">
                         {isLoading ? 'Loading' : 'Sign in'}
                     </Button>
                 </Form>

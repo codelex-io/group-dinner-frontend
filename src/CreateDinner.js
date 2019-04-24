@@ -32,6 +32,7 @@ class CreateDinner extends Component {
     onDateTimeUpdate = dateTime => {
         this.setState({dateTime: dateTime})
     }
+    
     onSubmit = () => {
         const {title, maxGuest, description, location, dateTime} = this.state
         axios.post(
@@ -48,6 +49,20 @@ class CreateDinner extends Component {
                 this.setState({isLoading: false})
             }
         )
+    }
+
+    isValid = () => {
+        const {title, maxGuest, description} = this.state
+        if (!title || title.length === 0) {
+            return false
+        }
+        if (!maxGuest || maxGuest.length === 0) {
+            return false
+        }
+        if (!description || description.length === 0) {
+            return false
+        }
+        return true
     }
 
     render() {
@@ -95,7 +110,7 @@ class CreateDinner extends Component {
                         <FormGroup>
                             <Label>Location</Label>
                             <Input
-                                type="text"
+                                type="textarea"
                                 name="location"
                                 id="location"
                                 placeholder="location"
@@ -113,7 +128,7 @@ class CreateDinner extends Component {
                                 onChange={e => this.onDateTimeUpdate(e.target.value)}/>
                         </FormGroup>
                     </Col>
-                    <Button color="primary" tag={Link} to="/dinners">
+                    <Button disabled={!this.isValid()} color="primary" tag={Link} to="/dinners">
                         {isLoading ? 'Loading' : 'Create dinner'}
                     </Button>
                 </Form>

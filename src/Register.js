@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {
     Container, Col, Form,
     FormGroup, Label, Input,
-    Button,
+    Button, UncontrolledAlert
 } from 'reactstrap';
 import './App.css';
 import axios from 'axios'
@@ -45,6 +45,24 @@ class Register extends Component {
             }
         )
     }
+    isValid = () => {
+        const {firstName, lastName, email, password} = this.state
+        if (!firstName || firstName.length === 0) {
+            return false
+        }
+        if (!lastName || lastName.length === 0) {
+            return false
+        }
+        if (!email || email.length === 0) {
+            return false
+        }
+
+        if (!password || password.length === 0) {
+            return false
+        }
+        return true
+
+    }
 
     render() {
         const {isLoading} = this.state
@@ -60,7 +78,6 @@ class Register extends Component {
                                 name="firstName"
                                 id="exampleFirstName"
                                 placeholder="FirstName"
-                                required
                                 onChange={e => this.onFirstNameUpdate(e.target.value)}
                             />
                         </FormGroup>
@@ -94,9 +111,9 @@ class Register extends Component {
                     <Col>
                         <FormGroup>
                             <Label for="examplePassword">Password*
-                                <h6>Must contain at least one number and one uppercase
+                                <UncontrolledAlert color="warning">Must contain at least one number and one uppercase
                                     and lowercase letter, and at least 8
-                                    or more characters</h6>
+                                    or more characters</UncontrolledAlert>
                             </Label>
                             <Input
                                 type="password"
@@ -109,7 +126,7 @@ class Register extends Component {
                             />
                         </FormGroup>
                     </Col>
-                    <Button color="primary" tag={Link} to="/dinners">
+                    <Button disabled={!this.isValid()} color="primary" tag={Link} to="/dinners">
                         {isLoading ? 'Loading' : 'Register'}
 
                     </Button>

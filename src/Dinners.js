@@ -6,6 +6,7 @@ import {
 import './App.css';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import AvailableDinners from './AvailableDinners'
 
 class Dinners extends Component {
 
@@ -27,6 +28,7 @@ class Dinners extends Component {
                     <Button color="primary" tag={Link} to="/create-dinner"> Create dinner
                     </Button>
                 </Form>
+                <AvailableDinners/>
             </Container>
         );
     }

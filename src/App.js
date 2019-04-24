@@ -4,6 +4,7 @@ import Register from './Register'
 import SignIn from './SignIn'
 import CreateDinner from './CreateDinner'
 import Dinners from './Dinners'
+import DinnerPage from './DinnerPage'
 
 class App extends Component {
     render() {
@@ -15,6 +16,7 @@ class App extends Component {
                         <Route path="/register/" component={Register}/>
                         <Route path="/create-dinner" component={CreateDinner}/>
                         <Route path="/dinners/" component={Dinners}/>
+                        <Route path="/dinner-id" compinent = {DinnerPage}/>
                     </Switch>
                 </div>
             </Router>
