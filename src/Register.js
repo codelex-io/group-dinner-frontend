@@ -7,6 +7,7 @@ import {
 import './App.css';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import history from './history'
 
 class Register extends Component {
     state = {
@@ -41,7 +42,8 @@ class Register extends Component {
             }
         ).then(res => {
                 console.log(res)
-                this.setState({isLoading: false})
+                history.push("/dinners")
+
             }
         )
     }
@@ -126,7 +128,7 @@ class Register extends Component {
                             />
                         </FormGroup>
                     </Col>
-                    <Button disabled={!this.isValid()} color="primary" tag={Link} to="/dinners">
+                    <Button disabled={!this.isValid()} color="primary" tag={Link} to="/dinners" onClick={this.onSubmit}>
                         {isLoading ? 'Loading' : 'Register'}
 
                     </Button>

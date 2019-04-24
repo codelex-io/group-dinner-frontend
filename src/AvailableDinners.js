@@ -17,7 +17,7 @@ class AvailableDinners extends Component {
     componentDidMount() {
         axios.get(`http://localhost:8080/api/dinners`
         ).then(res => {
-                console.log(res)
+                console.log("test dinners" + res)
             }
         )
     }

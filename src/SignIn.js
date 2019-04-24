@@ -5,7 +5,7 @@ import {
 } from 'reactstrap';
 import './App.css';
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import history from './history'
 
 class SignIn extends Component {
     state = {
@@ -26,6 +26,7 @@ class SignIn extends Component {
             {email: this.state.email, password: this.state.password}
         ).then(res => {
                 console.log(res)
+                history.push("/dinners")
                 this.setState({isLoading: false})
             }
         )
@@ -73,7 +74,8 @@ class SignIn extends Component {
                             />
                         </FormGroup>
                     </Col>
-                    <Button disabled={!this.isValid()} color="primary" tag={Link} to="/dinners">
+                    <Button disabled={!this.isValid()} color="primary"
+                            onClick={this.onSubmit}>
                         {isLoading ? 'Loading' : 'Sign in'}
                     </Button>
                 </Form>
