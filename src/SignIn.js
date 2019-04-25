@@ -48,7 +48,7 @@ class SignIn extends Component {
         return (
             <Container className="SignIn">
                 <h2>Sign in</h2>
-                <Form className="form" novalidate>
+                <Form className="form" noValidate>
                     <Col>
                         <FormGroup>
                             <Label>Email*</Label>

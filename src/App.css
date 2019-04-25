@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+body {
+  background-image: url("bgphoto.jpg");
+  background-color: dimgrey;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
