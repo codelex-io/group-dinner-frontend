@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
-import {
-    Container, Col, Form,
-    FormGroup, Label, Input,
-    Button,
-} from 'reactstrap';
+import {Button, Col, Container, Form, FormGroup, Input, Label,} from 'reactstrap';
 import './App.css';
 import axios from 'axios'
-import {Link} from 'react-router-dom'
+import history from './history'
+import Row from 'reactstrap/es/Row'
 
 class CreateDinner extends Component {
     state = {
@@ -47,8 +44,13 @@ class CreateDinner extends Component {
         ).then(res => {
                 console.log(res)
                 this.setState({isLoading: false})
+                this.goTo("/dinners")
             }
         )
+    }
+
+    goTo = (link) => {
+        history.push(link)
     }
 
     isValid = () => {
@@ -71,66 +73,63 @@ class CreateDinner extends Component {
             <Container className="CreateDinner">
                 <h2>Create dinner</h2>
                 <Form className="form">
-                    <Col>
-                        <FormGroup>
-                            <Label>Title</Label>
-                            <Input
-                                type="text"
-                                name="title"
-                                id="title"
-                                placeholder="Dinner title"
-                                onChange={e => this.onTitleUpdate(e.target.value)}
-                            />
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <FormGroup>
-                            <Label>Max Guests</Label>
-                            <Input
-                                type="number"
-                                name="maxGuests"
-                                id="maxGuests"
-                                placeholder="Max Guests"
-                                onChange={e => this.onMaxGuestsUpdate(e.target.value)}/>
-                        </FormGroup>
-                    </Col>
-
-                    <Col>
-                        <FormGroup>
-                            <Label>Description</Label>
-                            <Input
-                                type="text"
-                                name="description"
-                                id="description"
-                                placeholder="description"
-                                onChange={e => this.onDescriptionUpdate(e.target.value)}/>
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <FormGroup>
-                            <Label>Location</Label>
-                            <Input
-                                type="textarea"
-                                name="location"
-                                id="location"
-                                placeholder="location"
-                                onChange={e => this.onLocationUpdate(e.target.value)}/>
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <FormGroup>
-                            <Label>Date and Time</Label>
-                            <Input
-                                type="datetime-local"
-                                name="dateTime"
-                                id="dateTime"
-                                placeholder="13th may, 2019, 3pm"
-                                onChange={e => this.onDateTimeUpdate(e.target.value)}/>
-                        </FormGroup>
-                    </Col>
-                    <Button disabled={!this.isValid()} color="primary" onClick={this.onSubmit}>
-                        {isLoading ? 'Loading' : 'Create dinner'}
-                    </Button>
+                    <FormGroup>
+                        <Label>Title</Label>
+                        <Input
+                            type="text"
+                            name="title"
+                            id="title"
+                            placeholder="Dinner title"
+                            onChange={e => this.onTitleUpdate(e.target.value)}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label>Max Guests</Label>
+                        <Input
+                            type="number"
+                            name="maxGuests"
+                            id="maxGuests"
+                            placeholder="Max Guests"
+                            onChange={e => this.onMaxGuestsUpdate(e.target.value)}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label>Description</Label>
+                        <Input
+                            type="text"
+                            name="description"
+                            id="description"
+                            placeholder="description"
+                            onChange={e => this.onDescriptionUpdate(e.target.value)}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label>Location</Label>
+                        <Input
+                            type="textarea"
+                            name="location"
+                            id="location"
+                            placeholder="location"
+                            onChange={e => this.onLocationUpdate(e.target.value)}/>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label>Date and Time</Label>
+                        <Input
+                            type="datetime-local"
+                            name="dateTime"
+                            id="dateTime"
+                            placeholder="13th may, 2019, 3pm"
+                            onChange={e => this.onDateTimeUpdate(e.target.value)}/>
+                    </FormGroup>
+                    <Row>
+                        <Col>
+                            <Button disabled={!this.isValid()} color="primary" onClick={this.onSubmit}>
+                                {isLoading ? 'Loading' : 'Create dinner'}
+                            </Button>
+                            <span>&nbsp;&nbsp;</span>
+                            <a href="/dinners" style={{color: 'white'}}>
+                                Cancel
+                            </a>
+                        </Col>
+                    </Row>
                 </Form>
             </Container>
         );

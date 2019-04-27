@@ -7,6 +7,7 @@ import CardBody from 'reactstrap/es/CardBody'
 import CardTitle from 'reactstrap/es/CardTitle'
 import CardSubtitle from 'reactstrap/es/CardSubtitle'
 import CardText from 'reactstrap/es/CardText'
+import history from './history'
 
 class DinnerPage extends Component {
     state = {
@@ -33,6 +34,9 @@ class DinnerPage extends Component {
                         <CardText>
                             {this.state.dinner.description}
                         </CardText>
+                        <Button color="primary" style={{margin: '5px'}} onClick={() => {
+                            this.goTo("/dinners")
+                        }}>Discover More</Button>
                         <Button color="success" onClick={() => {
                             this.joinDinner(this.state.dinner.id)
                         }}>Join Dinner</Button>
@@ -50,6 +54,10 @@ class DinnerPage extends Component {
             }
         )
     }
+
+    goTo = (link) => {
+        history.push(link)
+    }
     
     render() {
         return (
@@ -58,7 +66,7 @@ class DinnerPage extends Component {
             </div>
         );
     }
-    
+
 }
 
 export default DinnerPage;

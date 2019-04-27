@@ -5,6 +5,7 @@ import AvailableDinners from './AvailableDinners'
 import Row from 'reactstrap/es/Row'
 import {Link} from 'react-router-dom'
 import Col from 'reactstrap/es/Col'
+import Quotes from './Quotes'
 
 class Dinners extends Component {
     render() {
@@ -26,10 +27,7 @@ class Dinners extends Component {
                             </Row>
                             <Row>
                                 <Col>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                        Duis aute irure dolor in reprehenderit.</p>
+                                    <Quotes/>
                                 </Col>
                             </Row>
                         </Col>

@@ -17,7 +17,6 @@ class AvailableDinners extends Component {
     }
 
     componentDidMount() {
-        this._isMounted = true
         axios.get(`/api/dinners`
         ).then(response => {
                 this.setState({dinners: response.data})
@@ -39,7 +38,7 @@ class AvailableDinners extends Component {
                                 {dinner.description}
                             </CardText>
                             <Button color="primary" style={{margin: '5px'}} onClick={() => {
-                                this.goToDinner(dinnerLink)
+                                this.goTo(dinnerLink)
                             }}>View dinner</Button>
                             <Button color="success" onClick={() => {
                                 this.joinDinner(dinner.id)
@@ -51,11 +50,11 @@ class AvailableDinners extends Component {
         });
     }
 
-    goToDinner = (link) => {
+    goTo = (link) => {
         history.push(link)
     }
 
-    
+
     joinDinner = (id) => {
         axios.post(
             "/api/dinners/" + id + "/join"

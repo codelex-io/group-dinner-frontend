@@ -1,9 +1,5 @@
 import React, {Component} from 'react';
-import {
-    Container, Col, Form,
-    FormGroup, Label, Input,
-    Button,
-} from 'reactstrap';
+import {Button, Col, Container, Form, FormGroup, Input, Label,} from 'reactstrap';
 import './App.css';
 import axios from 'axios'
 

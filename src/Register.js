@@ -3,6 +3,7 @@ import {Button, Col, Container, Form, FormGroup, Input, Label, UncontrolledAlert
 import './App.css';
 import axios from 'axios'
 import history from './history'
+import Row from 'reactstrap/es/Row'
 
 class Register extends Component {
     state = {
@@ -23,6 +24,10 @@ class Register extends Component {
     }
     onPasswordUpdate = password => {
         this.setState({password: password})
+    }
+
+    goTo = (link) => {
+        history.push(link)
     }
 
     onSubmit = () => {
@@ -66,65 +71,66 @@ class Register extends Component {
             <Container className="Register">
                 <h2>Register</h2>
                 <Form className="form">
-                    <Col>
-                        <FormGroup>
-                            <Label>First name*</Label>
-                            <Input
-                                type="text"
-                                name="firstName"
-                                id="exampleFirstName"
-                                placeholder="FirstName"
-                                onChange={e => this.onFirstNameUpdate(e.target.value)}
-                            />
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <FormGroup>
-                            <Label>Last name*</Label>
-                            <Input
-                                type="text"
-                                name="lastName"
-                                id="exampleLastName"
-                                placeholder="LastName"
-                                required
-                                onChange={e => this.onLastNameUpdate(e.target.value)}
-                            />
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <FormGroup>
-                            <Label>Email*</Label>
-                            <Input
-                                type="email"
-                                name="email"
-                                id="exampleEmail"
-                                placeholder="myemail@email.com"
-                                required
-                                onChange={e => this.onEmailUpdate(e.target.value)}
-                            />
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <FormGroup>
-                            <Label for="examplePassword">Password*
-                                <UncontrolledAlert color="warning">Must contain at least one number and one uppercase
-                                    and lowercase letter, and at least 8
-                                    or more characters</UncontrolledAlert>
-                            </Label>
-                            <Input
-                                type="password"
-                                name="password"
-                                id="examplePassword"
-                                placeholder="********"
-                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                required
-                                onChange={e => this.onPasswordUpdate(e.target.value)}
-                            />
-                        </FormGroup>
-                    </Col>
-                    <Button disabled={!this.isValid()} color="primary" onClick={this.onSubmit}>
-                        {isLoading ? 'Loading' : 'Register'}
-                    </Button>
+                    <FormGroup>
+                        <Label>First name*</Label>
+                        <Input
+                            type="text"
+                            name="firstName"
+                            id="exampleFirstName"
+                            placeholder="FirstName"
+                            onChange={e => this.onFirstNameUpdate(e.target.value)}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label>Last name*</Label>
+                        <Input
+                            type="text"
+                            name="lastName"
+                            id="exampleLastName"
+                            placeholder="LastName"
+                            required
+                            onChange={e => this.onLastNameUpdate(e.target.value)}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label>Email*</Label>
+                        <Input
+                            type="email"
+                            name="email"
+                            id="exampleEmail"
+                            placeholder="myemail@email.com"
+                            required
+                            onChange={e => this.onEmailUpdate(e.target.value)}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="examplePassword">Password*
+                            <UncontrolledAlert color="warning">Must contain at least one number and one uppercase
+                                and lowercase letter, and at least 8
+                                or more characters</UncontrolledAlert>
+                        </Label>
+                        <Input
+                            type="password"
+                            name="password"
+                            id="examplePassword"
+                            placeholder="********"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            required
+                            onChange={e => this.onPasswordUpdate(e.target.value)}
+                        />
+                    </FormGroup>
+                    <Row>
+                        <Col>
+                            <Button disabled={!this.isValid()} color="primary"
+                                    onClick={this.onSubmit}>
+                                {isLoading ? 'Loading' : 'Register'}
+                            </Button>
+                            <span>  or  </span>
+                            <a href="/log-in" style={{color: 'white'}}>
+                                Log in
+                            </a>
+                        </Col>
+                    </Row>
                 </Form>
             </Container>
         );
