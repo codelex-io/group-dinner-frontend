@@ -128,7 +128,7 @@ class CreateDinner extends Component {
                                 onChange={e => this.onDateTimeUpdate(e.target.value)}/>
                         </FormGroup>
                     </Col>
-                    <Button disabled={!this.isValid()} color="primary" tag={Link} to="/dinners" onClick={this.onSubmit}>
+                    <Button disabled={!this.isValid()} color="primary" onClick={this.onSubmit}>
                         {isLoading ? 'Loading' : 'Create dinner'}
                     </Button>
                 </Form>
