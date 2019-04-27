@@ -6,6 +6,15 @@ import {
 import './App.css';
 import axios from 'axios'
 import history from './history'
+import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
+
+const responseFacebook = (response) => {
+    console.log(response);
+}
+const responseGoogle = (response) => {
+    console.log(response);
+}
 
 class SignIn extends Component {
     state = {
@@ -40,13 +49,34 @@ class SignIn extends Component {
             return false
         }
         return true
-
     }
+
 
     render() {
         const {isLoading} = this.state
         return (
             <Container className="SignIn">
+                <div className="App">
+                    <h4>LOGIN WITH FACEBOOK AND GOOGLE</h4>
+
+                    <FacebookLogin
+                        appId="354017915232853"
+                        fields="name,email,picture"
+                        callback={responseFacebook}
+                        autoLoad={true}
+                        icon="fa-facebook"
+                    />
+                    <br/>
+                    <br/>
+
+                    <GoogleLogin
+                        clientId="" //CLIENTID NOT CREATED YET
+                        buttonText="LOGIN WITH GOOGLE"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                    />
+
+                </div>
                 <h2>Sign in</h2>
                 <Form className="form" noValidate>
                     <Col>
@@ -78,6 +108,7 @@ class SignIn extends Component {
                             onClick={this.onSubmit}>
                         {isLoading ? 'Loading' : 'Sign in'}
                     </Button>
+
                 </Form>
             </Container>
         );

@@ -22,7 +22,7 @@ class App extends Component {
                         <Nav className="mr-auto" >
                             <NavLink href="/create-dinner" style={{color: 'white'}}>Create Dinner</NavLink>
                             <NavLink href="/dinners" style={{color: 'white'}}>Discover</NavLink>
-                            <NavLink href="/sign-out" style={{color: 'white'}}>Sign Out</NavLink>
+                            <NavLink href="/register" style={{color: 'white'}}>Sign Out</NavLink>
                         </Nav>
                     </Container>
                 </Navbar>
