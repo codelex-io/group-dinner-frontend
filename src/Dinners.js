@@ -20,7 +20,8 @@ class Dinners extends Component {
                                 </Col>
                                 <Col>
                                     <Form className="Dinners">
-                                        <Button color="light" tag={Link} to="/create-dinner"> Create dinner
+                                        <Button color="light" tag={Link} to="/create-dinner">
+                                            Create dinner
                                         </Button>
                                     </Form>
                                 </Col>

@@ -22,28 +22,28 @@ class Quotes extends Component {
         })
     }
 
-    renderQuotes = () => {
-        return this.state.dinners.map((quo) => {
-            return (
-                <blockquote className="blockquote mb-0">
-                    <p>
-                        {quo.quote}
-                    </p>
-                    <footer className="blockquote-footer">
-                        <small className="text-muted">
-                            {quo.author} <cite title={quo.title}>{quo.title}</cite>
-                        </small>
-                    </footer>
-                </blockquote>
-            );
-        });
-    }
-    
+    // renderQuotes = () => {
+    //     return this.state.dinners.map((quo) => {
+    //         return (
+    //             <blockquote className="blockquote mb-0">
+    //                 <p>
+    //                     {quo.quote}
+    //                 </p>
+    //                 <footer className="blockquote-footer">
+    //                     <small className="text-muted">
+    //                         {quo.author} <cite title={quo.title}>{quo.title}</cite>
+    //                     </small>
+    //                 </footer>
+    //             </blockquote>
+    //         );
+    //     });
+    // }
+
     render() {
         return (
         <div>
             {this.fillQuotes()}
-            {this.renderQuotes()}
+           {/*// {this.renderQuotes()}*/}
         </div>
         )
     };
