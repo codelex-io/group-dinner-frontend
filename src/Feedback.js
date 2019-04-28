@@ -40,10 +40,8 @@ class Feedback extends Component {
 
     isValid = () => {
         const {feedback} = this.state
-        if (!feedback || feedback.length === 0) {
-            return false
-        }
-        return true
+        return !(!feedback || feedback.length === 0);
+        
     }
 
     render() {

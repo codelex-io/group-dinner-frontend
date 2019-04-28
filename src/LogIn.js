@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
-import {
-    Container, Col, Form,
-    FormGroup, Label, Input, Button
-} from 'reactstrap';
+import {Button, Container, Form, FormGroup, Input, Label} from 'reactstrap';
 import './App.css';
 import axios from 'axios'
 import history from './history'
@@ -70,7 +67,7 @@ class LogIn extends Component {
                     <br/>
 
                     <GoogleLogin
-                        clientId="clean-mason-238908" 
+                        clientId="clean-mason-238908"
                         buttonText="LOGIN WITH GOOGLE"
                         onSuccess={responseGoogle}
                         onFailure={responseGoogle}
@@ -80,31 +77,27 @@ class LogIn extends Component {
                 </div>
                 <h2>LOGIN</h2>
                 <Form className="form" noValidate>
-                    <Col>
-                        <FormGroup>
-                            <Label>Email*</Label>
-                            <Input
-                                type="email"
-                                name="email"
-                                id="exampleEmail"
-                                placeholder="myemail@email.com"
-                                required
-                                onChange={e => this.onEmailUpdate(e.target.value)}
-                            />
-                        </FormGroup>
-                    </Col>
-                    <Col>
-                        <FormGroup>
-                            <Label for="psw">Password*</Label>
-                            <Input
-                                type="password"
-                                id="psw"
-                                placeholder="********"
-                                required
-                                onChange={e => this.onPasswordUpdate(e.target.value)}
-                            />
-                        </FormGroup>
-                    </Col>
+                    <FormGroup>
+                        <Label>Email*</Label>
+                        <Input
+                            type="email"
+                            name="email"
+                            id="exampleEmail"
+                            placeholder="myemail@email.com"
+                            required
+                            onChange={e => this.onEmailUpdate(e.target.value)}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="psw">Password*</Label>
+                        <Input
+                            type="password"
+                            id="psw"
+                            placeholder="********"
+                            required
+                            onChange={e => this.onPasswordUpdate(e.target.value)}
+                        />
+                    </FormGroup>
                     <Button disabled={!this.isValid()} color="primary"
                             onClick={this.onSubmit}>
                         {isLoading ? 'Loading' : 'Sign in'}
