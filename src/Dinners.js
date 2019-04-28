@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Container, Form,} from 'reactstrap';
+import {Button, Container,} from 'reactstrap';
 import './App.css';
 import AvailableDinners from './AvailableDinners'
 import Row from 'reactstrap/es/Row'
@@ -15,16 +15,15 @@ class Dinners extends Component {
                     <Row>
                         <Col style={{padding: '7% 5%', textAlign: 'left', verticalAlign: 'center'}}>
                             <Row>
-                                <Col>
+                                <Col md="8">
                                     <h2 style={{color: 'white', fontSize: '36px'}}>Group Dinner</h2>
                                 </Col>
                                 <Col>
-                                    <Form className="Dinners">
-                                        <Button color="light" tag={Link} to="/create-dinner"> Create dinner
-                                        </Button>
-                                    </Form>
+                                    <Button color="light" tag={Link} to="/create-dinner"> Create dinner
+                                    </Button>
                                 </Col>
                             </Row>
+                            <hr style={{borderColor: 'white'}}/>
                             <Row>
                                 <Col>
                                     <Quotes/>
