@@ -6,6 +6,7 @@ import CreateDinner from './CreateDinner'
 import Dinners from './Dinners'
 import Header from './Header'
 import DinnerPage from './DinnerPage'
+import Feedback from './Feedback'
 import history from './history'
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
                         <Route path="/create-dinner" component={CreateDinner}/>
                         <Route path="/dinners/:id" component={DinnerPage}/>
                         <Route path="/dinners" component={Dinners}/>
+                        <Route path="/dinners/:id/feedback" component={Feedback}/>
                     </Switch>
                 </div>
             </Router>

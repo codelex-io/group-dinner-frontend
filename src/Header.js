@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Navbar from 'reactstrap/es/Navbar'
+import NavBar from 'reactstrap/es/Navbar'
 import Container from 'reactstrap/es/Container'
 import Nav from 'reactstrap/es/Nav'
 import NavLink from 'reactstrap/es/NavLink'
@@ -25,7 +25,7 @@ class Header extends Component {
 
     render() {
         return (
-            <Navbar expand="md" color="dark" sticky="top">
+            <NavBar expand="md" color="dark" sticky="top">
                 <Container>
                     <Nav className="mr-auto">
                         <NavLink href="/create-dinner" style={{color: 'white'}}>Create Dinner</NavLink>
@@ -34,7 +34,7 @@ class Header extends Component {
                             Out</NavLink>
                     </Nav>
                 </Container>
-            </Navbar>
+            </NavBar>
         );
     }
 }

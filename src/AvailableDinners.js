@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import axios from 'axios'
 import history from './history'
-import {Jumbotron, Button, Col, CardSubtitle, CardText, CardBody, Card, CardTitle} from 'reactstrap'
+import {Button, Col, CardSubtitle, CardText, CardBody, Card, CardTitle} from 'reactstrap'
 
 
 class AvailableDinners extends Component {
