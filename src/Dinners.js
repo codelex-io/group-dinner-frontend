@@ -38,7 +38,6 @@ class Dinners extends Component {
             </Container>
         );
     }
-
 }
 
 export default Dinners;

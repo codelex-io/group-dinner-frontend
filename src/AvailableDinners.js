@@ -2,13 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import axios from 'axios'
 import history from './history'
-import Card from 'reactstrap/es/Card'
-import CardBody from 'reactstrap/es/CardBody'
-import CardText from 'reactstrap/es/CardText'
-import CardSubtitle from 'reactstrap/es/CardSubtitle'
-import CardTitle from 'reactstrap/es/CardTitle'
-import Button from 'reactstrap/es/Button'
-import Col from 'reactstrap/es/Col'
+import {Jumbotron, Button, Col, CardSubtitle, CardText, CardBody, Card, CardTitle} from 'reactstrap'
+
 
 class AvailableDinners extends Component {
     state = {
@@ -24,28 +19,47 @@ class AvailableDinners extends Component {
         ).catch()//catch error
     }
 
-    renderDinners = () => {
+    render() {
         return this.state.dinners.map((dinner) => {
             const dinnerLink = "/dinners/" + dinner.id
+            // return (
+            //     <Col key={dinner.id}>
+            //         <Card style={{width: '21rem', margin: '20px', padding: '5px'}} color="dark" key={dinner.id}>
+            //             <CardBody>
+            //                 <CardTitle><h3>{dinner.title}</h3></CardTitle>
+            //                 <CardSubtitle className="mb-2 text-muted">Created
+            //                     by: {dinner.creator.firstName} {dinner.creator.lastName}</CardSubtitle>
+            //                 <CardText>
+            //                     {dinner.description}
+            //                 </CardText>
+            //                 <Button color="primary" style={{margin: '5px'}} onClick={() => {
+            //                     this.goTo(dinnerLink)
+            //                 }}>View dinner</Button>
+            //                 <Button color="success" onClick={() => {
+            //                     this.joinDinner(dinner.id)
+            //                 }}>Join Dinner</Button>
+            //             </CardBody>
+            //         </Card>
+            //     </Col>
+            // );
             return (
-                <Col key={dinner.id}>
-                    <Card style={{width: '21rem', margin: '20px', padding: '5px'}} color="dark" key={dinner.id}>
-                        <CardBody>
-                            <CardTitle><h3>{dinner.title}</h3></CardTitle>
-                            <CardSubtitle className="mb-2 text-muted">Created
-                                by: {dinner.creator.firstName} {dinner.creator.lastName}</CardSubtitle>
-                            <CardText>
-                                {dinner.description}
-                            </CardText>
-                            <Button color="primary" style={{margin: '5px'}} onClick={() => {
+                <div>
+                    <Col key={dinner.id}/>
+                    <Jumbotron key={dinner.id}>
+                        <h1 className="display-3">{dinner.title}</h1>
+                        <p className="lead">{dinner.description}</p>
+                        <hr className="my-2"/>
+                        <p> Created by: {dinner.creator.firstName} {dinner.creator.lastName}</p>
+                        <p className="lead">
+                            <Button color="primary" onClick={() => {
                                 this.goTo(dinnerLink)
                             }}>View dinner</Button>
                             <Button color="success" onClick={() => {
                                 this.joinDinner(dinner.id)
                             }}>Join Dinner</Button>
-                        </CardBody>
-                    </Card>
-                </Col>
+                        </p>
+                    </Jumbotron>
+                </div>
             );
         });
     }
@@ -53,8 +67,7 @@ class AvailableDinners extends Component {
     goTo = (link) => {
         history.push(link)
     }
-
-
+    
     joinDinner = (id) => {
         axios.post(
             "/api/dinners/" + id + "/join"
@@ -63,15 +76,6 @@ class AvailableDinners extends Component {
             }
         )
     }
-
-    render() {
-        return (
-            <div>
-                {this.renderDinners()}
-            </div>
-        );
-    };
-
 }
 
 export default AvailableDinners;
