@@ -46,25 +46,27 @@ class DinnerPage extends Component {
         return this.state.acceptedAttendees.map((attendee) => {
             const link = "/dinners/" + this.props.match.params.id + "/feedback"
             return (
-                <span key={attendee.id} style={{fontSize: '14px'}}>
-                    &nbsp;&nbsp;- {attendee.firstName} {attendee.lastName}
+                <li key={attendee.id} style={{fontSize: '14px'}}>
+                    {attendee.firstName} {attendee.lastName}
                     <a href={link} color="secondary" style={{margin: '5px'}} onClick={() => {
                         this.goTo("/dinners/" + this.props.match.params.id + "/feedback")
                     }}>[Leave Feedback]</a>
-                </span>
+                    <br/>
+                </li>
             );
         });
     }
 
     mapPendingAttendees = () => {
         return this.state.pendingAttendees.map((attendee) => {
+            const link = "/dinners/" + this.props.match.params.id + "/feedback"
             return (
-                <span key={attendee.id}>
-                    <h6>&nbsp;&nbsp;- {attendee.firstName} {attendee.lastName}</h6>
-                    <Button color="secondary" style={{margin: '5px'}} onClick={() => {
-                        this.goTo("/dinners" + this.props.match.params.id + "feedback")
-                    }}>Leave Feedback</Button>
-                </span>
+                <li key={attendee.id}>
+                    {attendee.firstName} {attendee.lastName}
+                    <a href={link} color="secondary" style={{margin: '5px'}} onClick={() => {
+                        this.goTo("/dinners/" + this.props.match.params.id + "/feedback")
+                    }}>[Leave Feedback]</a>
+                </li>
             );
         });
     }
@@ -100,16 +102,16 @@ class DinnerPage extends Component {
                                         <h4>
                                             Accepted guests:
                                         </h4>
-                                        <p>
+                                        <ol>
                                             {this.mapAcceptedAttendees()}
-                                        </p>
+                                        </ol>
                                         <hr style={{borderColor: 'white'}}/>
                                         <h4>
                                             Waiting list:
                                         </h4>
-                                        <p>
+                                        <ol>
                                             {this.mapPendingAttendees()}
-                                        </p>
+                                        </ol>
                                     </Col>
                                 </Row>
                             </Col>

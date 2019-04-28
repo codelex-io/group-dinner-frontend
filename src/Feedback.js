@@ -67,7 +67,20 @@ class Feedback extends Component {
                             <Label as="legend" column sm={2}>
                                 Radios
                             </Label>
-                            
+                            <Col sm={10}>
+                                <Input
+                                    type="radio"
+                                    label="True"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios1"
+                                />
+                                <Input
+                                    type="radio"
+                                    label="False"
+                                    name="formHorizontalRadios"
+                                    id="formHorizontalRadios2"
+                                />
+                            </Col>
                         </FormGroup>
                         <Row>
                             <Col>
