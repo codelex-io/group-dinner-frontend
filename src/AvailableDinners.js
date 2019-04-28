@@ -22,44 +22,25 @@ class AvailableDinners extends Component {
     render() {
         return this.state.dinners.map((dinner) => {
             const dinnerLink = "/dinners/" + dinner.id
-            // return (
-            //     <Col key={dinner.id}>
-            //         <Card style={{width: '21rem', margin: '20px', padding: '5px'}} color="dark" key={dinner.id}>
-            //             <CardBody>
-            //                 <CardTitle><h3>{dinner.title}</h3></CardTitle>
-            //                 <CardSubtitle className="mb-2 text-muted">Created
-            //                     by: {dinner.creator.firstName} {dinner.creator.lastName}</CardSubtitle>
-            //                 <CardText>
-            //                     {dinner.description}
-            //                 </CardText>
-            //                 <Button color="primary" style={{margin: '5px'}} onClick={() => {
-            //                     this.goTo(dinnerLink)
-            //                 }}>View dinner</Button>
-            //                 <Button color="success" onClick={() => {
-            //                     this.joinDinner(dinner.id)
-            //                 }}>Join Dinner</Button>
-            //             </CardBody>
-            //         </Card>
-            //     </Col>
-            // );
             return (
-                <div>
-                    <Col key={dinner.id}/>
-                    <Jumbotron key={dinner.id}>
-                        <h1 className="display-3">{dinner.title}</h1>
-                        <p className="lead">{dinner.description}</p>
-                        <hr className="my-2"/>
-                        <p> Created by: {dinner.creator.firstName} {dinner.creator.lastName}</p>
-                        <p className="lead">
-                            <Button color="primary" onClick={() => {
+                <Col key={dinner.id}>
+                    <Card style={{width: '21rem', margin: '20px', padding: '5px'}} color="dark" key={dinner.id}>
+                        <CardBody>
+                            <CardTitle><h3>{dinner.title}</h3></CardTitle>
+                            <CardSubtitle className="mb-2 text-muted">Created
+                                by: {dinner.creator.firstName} {dinner.creator.lastName}</CardSubtitle>
+                            <CardText>
+                                {dinner.description}
+                            </CardText>
+                            <Button color="primary" style={{margin: '5px'}} onClick={() => {
                                 this.goTo(dinnerLink)
                             }}>View dinner</Button>
                             <Button color="success" onClick={() => {
                                 this.joinDinner(dinner.id)
                             }}>Join Dinner</Button>
-                        </p>
-                    </Jumbotron>
-                </div>
+                        </CardBody>
+                    </Card>
+                </Col>
             );
         });
     }
@@ -67,7 +48,7 @@ class AvailableDinners extends Component {
     goTo = (link) => {
         history.push(link)
     }
-    
+
     joinDinner = (id) => {
         axios.post(
             "/api/dinners/" + id + "/join"
