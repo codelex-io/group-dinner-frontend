@@ -28,7 +28,7 @@ class LogIn extends Component {
 
     onSubmit = () => {
         axios.post(
-            `/api/sign-in`,
+            `/api/log-in`,
             {email: this.state.email, password: this.state.password}
         ).then(res => {
                 console.log(res)
@@ -100,7 +100,7 @@ class LogIn extends Component {
                     </FormGroup>
                     <Button disabled={!this.isValid()} color="primary"
                             onClick={this.onSubmit}>
-                        {isLoading ? 'Loading' : 'Sign in'}
+                        {isLoading ? 'Loading' : 'Login'}
                     </Button>
 
                 </Form>
