@@ -28,7 +28,7 @@ class LogIn extends Component {
 
     onSubmit = () => {
         axios.post(
-            `/api/log-in`,
+            `/api/log-in`, 
             {email: this.state.email, password: this.state.password}
         ).then(res => {
                 console.log(res)
@@ -55,7 +55,11 @@ class LogIn extends Component {
             <Container className="LogIn">
                 <div className="App">
                     <h4>LOGIN WITH FACEBOOK AND GOOGLE</h4>
-
+                    <Button onClick={() => {
+                        document.location.href = 'http://localhost:8080/api/login/facebook'
+                    }}>
+                        
+                    </Button>
                     <FacebookLogin
                         appId="354017915232853"
                         fields="name,email,picture"
