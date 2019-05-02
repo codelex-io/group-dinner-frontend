@@ -8,8 +8,8 @@ import axios from 'axios'
 import history from './history'
 
 class Header extends Component {
-    
-    LogOut = () => {
+
+    logOut = () => {
         axios.post(
             "/api/log-out"
         ).then(response => {
@@ -30,7 +30,7 @@ class Header extends Component {
                     <Nav className="mr-auto">
                         <NavLink href="/create-dinner" style={{color: 'white'}}>Create Dinner</NavLink>
                         <NavLink href="/dinners" style={{color: 'white'}}>Discover</NavLink>
-                        <NavLink href="/register" style={{color: 'white'}} onClick={this.LogOut()}>Log
+                        <NavLink href="/register" style={{color: 'white'}} onClick={this.logOut}>Log
                             Out</NavLink>
                     </Nav>
                 </Container>

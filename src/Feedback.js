@@ -11,7 +11,7 @@ class Feedback extends Component {
         feedback: true,
         isLoading: false,
         receiver: {
-            firstName: "aaa",
+            fullName: "aaa",
             lastName: "bbb"
         }
     }
@@ -49,7 +49,7 @@ class Feedback extends Component {
         return (
             <Container className="Feedback">
                 <div className="App">
-                    <h2>Leave feedback for {this.state.receiver.firstName} {this.state.receiver.lastName}</h2>
+                    <h2>Leave feedback for {this.state.receiver.fullName} {this.state.receiver.lastName}</h2>
                     <Form className="form">
                         <FormGroup>
                             <Label>Feedback</Label>

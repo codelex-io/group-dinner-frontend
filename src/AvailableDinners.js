@@ -28,7 +28,7 @@ class AvailableDinners extends Component {
                         <CardBody>
                             <CardTitle><h3>{dinner.title}</h3></CardTitle>
                             <CardSubtitle className="mb-2 text-muted">Created
-                                by: {dinner.creator.firstName} {dinner.creator.lastName}</CardSubtitle>
+                                by: {dinner.creator.fullName} {dinner.creator.lastName}</CardSubtitle>
                             <CardText>
                                 {dinner.description}
                             </CardText>

@@ -7,17 +7,14 @@ import Row from 'reactstrap/es/Row'
 
 class Register extends Component {
     state = {
-        firstName: '',
-        lastName: '',
+        fullName: '',
         email: '',
         password: '',
         isLoading: false
     }
-    onFirstNameUpdate = firstName => {
-        this.setState({firstName: firstName})
-    }
-    onLastNameUpdate = lastName => {
-        this.setState({lastName: lastName})
+
+    onFullNameUpdate = fullName => {
+        this.setState({fuName: fullName})
     }
     onEmailUpdate = email => {
         this.setState({email: email})
@@ -31,12 +28,11 @@ class Register extends Component {
     }
 
     onSubmit = () => {
-        const {firstName, lastName, email, password} = this.state
+        const {fullName, email, password} = this.state
         axios.post(
             `/api/register`,
             {
-                firstName,
-                lastName,
+                fullName,
                 email,
                 password
             }
@@ -47,22 +43,20 @@ class Register extends Component {
         )
     }
     isValid = () => {
-        const {firstName, lastName, email, password} = this.state
-        if (!firstName || firstName.length === 0) {
+        const {fullName, email, password} = this.state
+        if (!fullName || fullName.length === 0) {
             return false
-        }
-        if (!lastName || lastName.length === 0) {
-            return false
-        }
-        if (!email || email.length === 0) {
-            return false
-        }
 
-        if (!password || password.length === 0) {
-            return false
-        }
-        return true
+            if (!email || email.length === 0) {
+                return false
+            }
 
+            if (!password || password.length === 0) {
+                return false
+            }
+            return true
+
+        }
     }
 
     render() {
@@ -72,24 +66,13 @@ class Register extends Component {
                 <h2>Register</h2>
                 <Form className="form">
                     <FormGroup>
-                        <Label>First name*</Label>
+                        <Label>Full name*</Label>
                         <Input
                             type="text"
-                            name="firstName"
-                            id="exampleFirstName"
-                            placeholder="FirstName"
-                            onChange={e => this.onFirstNameUpdate(e.target.value)}
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label>Last name*</Label>
-                        <Input
-                            type="text"
-                            name="lastName"
-                            id="exampleLastName"
-                            placeholder="LastName"
-                            required
-                            onChange={e => this.onLastNameUpdate(e.target.value)}
+                            name="fullName"
+                            id="exampleFullName"
+                            placeholder="FullName"
+                            onChange={e => this.onFullNameUpdate(e.target.value)}
                         />
                     </FormGroup>
                     <FormGroup>

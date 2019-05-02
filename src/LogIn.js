@@ -3,12 +3,9 @@ import {Button, Container, Form, FormGroup, Input, Label} from 'reactstrap';
 import './App.css';
 import axios from 'axios'
 import history from './history'
-import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
-const responseFacebook = (response) => {
-    console.log(response);
-}
 const responseGoogle = (response) => {
     console.log(response);
 }
@@ -19,6 +16,9 @@ class LogIn extends Component {
         password: '',
         isLoading: false
     }
+    responseFacebook = (response) => {
+        console.log(response);
+    }
     onEmailUpdate = email => {
         this.setState({email: email})
     }
@@ -28,7 +28,7 @@ class LogIn extends Component {
 
     onSubmit = () => {
         axios.post(
-            `/api/log-in`, 
+            `/api/log-in`,
             {email: this.state.email, password: this.state.password}
         ).then(res => {
                 console.log(res)
@@ -55,15 +55,11 @@ class LogIn extends Component {
             <Container className="LogIn">
                 <div className="App">
                     <h4>LOGIN WITH FACEBOOK AND GOOGLE</h4>
-                    <Button onClick={() => {
-                        document.location.href = 'http://localhost:8080/api/login/facebook'
-                    }}>
-                        
-                    </Button>
+                    <br/>
                     <FacebookLogin
                         appId="354017915232853"
                         fields="name,email,picture"
-                        callback={responseFacebook}
+                        callback={this.responseFacebook}
                         autoLoad={true}
                         icon="fa-facebook"
                     />

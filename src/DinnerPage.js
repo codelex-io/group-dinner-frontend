@@ -47,7 +47,7 @@ class DinnerPage extends Component {
             const link = "/dinners/" + this.props.match.params.id + "/feedback"
             return (
                 <li key={attendee.id} style={{fontSize: '14px'}}>
-                    {attendee.firstName} {attendee.lastName}
+                    {attendee.fullName} 
                     <a href={link} color="secondary" style={{margin: '5px'}} onClick={() => {
                         this.goTo("/dinners/" + this.props.match.params.id + "/feedback")
                     }}>[Leave Feedback]</a>
@@ -62,7 +62,7 @@ class DinnerPage extends Component {
             const link = "/dinners/" + this.props.match.params.id + "/feedback"
             return (
                 <li key={attendee.id}>
-                    {attendee.firstName} {attendee.lastName}
+                    {attendee.fullName} {attendee.lastName}
                     <a href={link} color="secondary" style={{margin: '5px'}} onClick={() => {
                         this.goTo("/dinners/" + this.props.match.params.id + "/feedback")
                     }}>[Leave Feedback]</a>
